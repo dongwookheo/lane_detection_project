@@ -17,9 +17,17 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(OpenCV 4.5.5 REQUIRED PATHS ~/OpenCV4/install/lib/cmake/opencv4)
 
+if(OpenCV_FOUND)
+  message(STATUS "OpenCV Found!" - ${OpenCV_DIR})
+  message(STATUS "OpenCV Version" - ${OpenCV_VERSION})
+endif()
+
 catkin_package()
 
 add_subdirectory(modules)
+
+add_executable(main_xycar src/main_xycar.cpp)
+target_link_libraries(main_xycar PRIVATE ${PROJECT_NAME})
 
 if(CMAKE_BUILD_TYPE MATCHES Debug)
    add_definitions(-DDEBUG=1)
