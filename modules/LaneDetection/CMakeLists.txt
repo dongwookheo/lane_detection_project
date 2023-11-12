@@ -13,6 +13,9 @@ set(HEADER_FILES
         include/PIDController.hpp
         include/XycarController.hpp
 )
+# file(GLOB HEADER_FILES
+#         "include/*.hpp"
+# )
 
 set(SOURCE_FILES
         src/ImageProcessor.cpp
@@ -22,6 +25,9 @@ set(SOURCE_FILES
         src/PIDController.cpp
         src/XycarController.cpp
 )
+# file(GLOB SOURCE_FILES
+#         "src/*.cpp"
+# )
 
 add_library(${PROJECT_NAME}
         ${HEADER_FILES}
@@ -37,8 +43,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ${OpenCV_INCLUDE_DIRS}
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE
+target_link_libraries(${PROJECT_NAME} PUBLIC
         ${catkin_LIBRARIES}
         ${OpenCV_LIBRARIES}
 )
-
