@@ -1,3 +1,5 @@
 <launch>
+    <node name="player" pkg="rosbag" type="play" output="screen"
+        args="--clock $(find lane_detection)/src/cam_topic.bag"/>
     <node name="main_xycar" pkg="lane_detection" type="lane_detection" output="screen"/>
 </launch>
