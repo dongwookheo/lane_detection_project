@@ -3,31 +3,31 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
-set(HEADER_FILES
-        include/Common.hpp
-        include/draw.hpp
-        include/ImageProcessor.hpp
-        include/KalmanFilter.hpp
-        include/LaneDetector.hpp
-        include/LaneManager.hpp
-        include/PIDController.hpp
-        include/XycarController.hpp
-)
-# file(GLOB HEADER_FILES
-#         "include/*.hpp"
+# set(HEADER_FILES
+#         include/Common.hpp
+#         include/draw.hpp
+#         include/ImageProcessor.hpp
+#         include/KalmanFilter.hpp
+#         include/LaneDetector.hpp
+#         include/LaneManager.hpp
+#         include/PIDController.hpp
+#         include/XycarController.hpp
 # )
+file(GLOB HEADER_FILES
+        "include/*.hpp"
+)
 
-set(SOURCE_FILES
-        src/ImageProcessor.cpp
-        src/KalmanFilter.cpp
-        src/LaneDetector.cpp
-        src/LaneManager.cpp
-        src/PIDController.cpp
-        src/XycarController.cpp
-)
-# file(GLOB SOURCE_FILES
-#         "src/*.cpp"
+# set(SOURCE_FILES
+#         src/ImageProcessor.cpp
+#         src/KalmanFilter.cpp
+#         src/LaneDetector.cpp
+#         src/LaneManager.cpp
+#         src/PIDController.cpp
+#         src/XycarController.cpp
 # )
+file(GLOB SOURCE_FILES
+        "src/*.cpp"
+)
 
 add_library(${PROJECT_NAME}
         ${HEADER_FILES}
